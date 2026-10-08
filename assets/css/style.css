@@ -1,0 +1,59 @@
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+/* Monochrome animations & sharp borders */
+.btn-mono {
+  transition: all 0.15s ease-in-out;
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+.btn-mono:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+.btn-mono:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.card-mono {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.dark .btn-mono {
+  box-shadow: 4px 4px 0px 0px #ffffff;
+}
+.dark .btn-mono:hover:not(:disabled) {
+  box-shadow: 6px 6px 0px 0px #ffffff;
+}
+.dark .btn-mono:active:not(:disabled) {
+  box-shadow: 2px 2px 0px 0px #ffffff;
+}
+.dark .card-mono {
+  box-shadow: 6px 6px 0px 0px #ffffff;
+}
+
+/* Option selection states */
+.option-btn {
+  transition: all 0.15s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #18181b;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 0px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+

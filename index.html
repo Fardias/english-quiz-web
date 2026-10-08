@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENGLISH.BW — Learn English Simply</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      font-family: 'Rubik', sans-serif;
+    }
+    
+    /* Monochrome animations & sharp borders */
+    .btn-mono {
+      transition: all 0.15s ease-in-out;
+      box-shadow: 4px 4px 0px 0px #000000;
+    }
+    .btn-mono:hover:not(:disabled) {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px 0px #000000;
+    }
+    .btn-mono:active:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #000000;
+    }
+
+    .card-mono {
+      box-shadow: 6px 6px 0px 0px #000000;
+    }
+
+    .dark .btn-mono {
+      box-shadow: 4px 4px 0px 0px #ffffff;
+    }
+    .dark .btn-mono:hover:not(:disabled) {
+      box-shadow: 6px 6px 0px 0px #ffffff;
+    }
+    .dark .btn-mono:active:not(:disabled) {
+      box-shadow: 2px 2px 0px 0px #ffffff;
+    }
+    .dark .card-mono {
+      box-shadow: 6px 6px 0px 0px #ffffff;
+    }
+
+    /* Option selection states */
+    .option-btn {
+      transition: all 0.15s ease;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #18181b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #000;
+      border-radius: 0px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #fff;
+    }
+  </style>
+</head>
+<body class="bg-zinc-50 text-black dark:bg-zinc-950 dark:text-zinc-100 min-h-full flex flex-col justify-between transition-colors duration-200">
+
+  <!-- Header Navigation -->
+  <header class="border-b-4 border-black dark:border-white bg-white dark:bg-zinc-900 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="showLevelSelect()">
+        <span class="bg-black text-white dark:bg-white dark:text-black font-extrabold px-3 py-1 text-xl tracking-tighter">EN.BW</span>
+        <span class="font-bold text-lg hidden sm:inline tracking-tight">ENGLISH LEARNING</span>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="border-2 border-black dark:border-white p-2 font-bold text-xs uppercase tracking-wider hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+          🌙 Dark
+        </button>
+        <button id="headerResetBtn" onclick="showLevelSelect()" class="hidden border-2 border-black dark:border-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+          ← Level Select
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full px-4 py-8 flex-grow">
+
+    <!-- SCREEN 1: LEVEL SELECTION -->
+    <div id="levelSelectScreen" class="space-y-8 animate-fadeIn">
+      <div class="text-center space-y-3 py-6">
+        <h1 class="text-4xl sm:text-5xl font-black uppercase tracking-tight">Kuasai Bahasa Inggris</h1>
+        <p class="text-zinc-600 dark:text-zinc-400 font-medium text-base sm:text-lg max-w-xl mx-auto">
+          Belajar grammar & kosakata tanpa ribet. Pilih level, selesaikan 30 soal, dan pahami penjelasan di setiap jawaban.
+        </p>
+      </div>
+
+      <!-- Level Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Pemula Card -->
+        <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between card-mono">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase px-3 py-1">Level 01</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">30 Soal</span>
+            </div>
+            <h2 class="text-2xl font-black uppercase mb-2">Pemula (Beginner)</h2>
+            <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
+              Materi dasar: Pronouns, Simple Present Tense, Basic Vocabulary, Articles, Prepositions sederhana, dan Kalimat Sehari-hari.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 pt-3 flex justify-between text-xs font-semibold">
+              <span>Skor Tertinggi:</span>
+              <span id="highScorePemula" class="font-bold">0 / 300</span>
+            </div>
+            <button onclick="startQuiz('pemula')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
+              Mulai Level Pemula →
+            </button>
+          </div>
+        </div>
+
+        <!-- Menengah Card -->
+        <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between card-mono">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase px-3 py-1">Level 02</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">30 Soal</span>
+            </div>
+            <h2 class="text-2xl font-black uppercase mb-2">Menengah (Intermediate)</h2>
+            <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
+              Materi lanjut: Present Perfect, Past Continuous, Conditionals, Phrasal Verbs, Passive Voice, dan Modal Verbs.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 pt-3 flex justify-between text-xs font-semibold">
+              <span>Skor Tertinggi:</span>
+              <span id="highScoreMenengah" class="font-bold">0 / 300</span>
+            </div>
+            <button onclick="startQuiz('menengah')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
+              Mulai Level Menengah →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Highlights -->
+      <div class="border-2 border-black dark:border-white bg-zinc-100 dark:bg-zinc-900/50 p-6 mt-8">
+        <h3 class="font-bold text-xs uppercase tracking-widest mb-4 text-center">Aturan & Metode Belajar</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-xs font-medium">
+          <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+            <div class="font-black text-lg mb-1">30 SOAL</div>
+            <span>Uji kemampuan dalam satu sesi terstruktur.</span>
+          </div>
+          <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+            <div class="font-black text-lg mb-1">PENJELASAN REAL-TIME</div>
+            <span>Pelajari alasan jawaban salah & benar secara detail.</span>
+          </div>
+          <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
+            <div class="font-black text-lg mb-1">SKOR MAX 300</div>
+            <span>Dapatkan +10 poin untuk tiap jawaban yang benar.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: QUIZ INTERFACE -->
+    <div id="quizScreen" class="hidden space-y-6">
+      
+      <!-- Progress Bar & Stat Header -->
+      <div class="border-2 border-black dark:border-white p-4 bg-white dark:bg-zinc-900 space-y-3">
+        <div class="flex justify-between items-center text-xs font-bold uppercase tracking-wider">
+          <span id="quizLevelBadge" class="bg-black text-white dark:bg-white dark:text-black px-2 py-0.5">LEVEL</span>
+          <span id="quizProgressText">SOAL 1 DARI 30</span>
+          <span id="quizScoreText" class="text-sm font-black">SKOR: 0</span>
+        </div>
+        
+        <!-- Custom Monochrome Progress Bar -->
+        <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-3 border border-black dark:border-white overflow-hidden">
+          <div id="progressBar" class="bg-black dark:bg-white h-full transition-all duration-300" style="width: 3.33%"></div>
+        </div>
+      </div>
+
+      <!-- Question Box -->
+      <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 sm:p-8 card-mono space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">Pertanyaan</span>
+          <h2 id="questionText" class="text-xl sm:text-2xl font-bold leading-snug">
+            Loading question...
+          </h2>
+        </div>
+
+        <!-- Options Container -->
+        <div id="optionsContainer" class="space-y-3">
+          <!-- Options generated dynamically -->
+        </div>
+
+        <!-- Explanation Card (Hidden initially) -->
+        <div id="explanationBox" class="hidden border-2 border-black dark:border-white bg-zinc-100 dark:bg-zinc-800 p-5 space-y-3">
+          <div class="flex items-center space-x-2">
+            <span id="feedbackBadge" class="font-black text-xs uppercase px-2.5 py-1">BENAR / SALAH</span>
+            <span class="font-bold text-sm uppercase tracking-wider">Penjelasan Jawaban:</span>
+          </div>
+          <p id="explanationText" class="text-sm leading-relaxed font-normal">
+            Detail penjelasan akan muncul di sini.
+          </p>
+        </div>
+
+        <!-- Action Button Footer -->
+        <div class="pt-2 flex justify-end">
+          <button id="nextBtn" onclick="nextQuestion()" disabled class="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white px-8 py-3.5 font-bold uppercase tracking-wider text-sm btn-mono opacity-50 cursor-not-allowed">
+            Lanjut →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: RESULT SCREEN -->
+    <div id="resultScreen" class="hidden space-y-8 animate-fadeIn">
+      <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-8 text-center space-y-6 card-mono">
+        <span class="bg-black text-white dark:bg-white dark:text-black font-extrabold px-3 py-1 text-xs uppercase tracking-widest">
+          Hasil Akhir Quiz
+        </span>
+        
+        <div>
+          <h2 id="resultTitle" class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-2">Kerja Bagus!</h2>
+          <p id="resultSubtitle" class="text-zinc-600 dark:text-zinc-400 font-medium">Kamu telah menyelesaikan seluruh 30 pertanyaan.</p>
+        </div>
+
+        <!-- Big Score Display -->
+        <div class="border-2 border-black dark:border-white py-6 bg-zinc-50 dark:bg-zinc-950 max-w-sm mx-auto space-y-1">
+          <div class="text-xs font-bold uppercase tracking-widest text-zinc-500">Total Skor Kamu</div>
+          <div id="finalScore" class="text-5xl font-black tracking-tighter">0 / 300</div>
+          <div id="finalPercentage" class="text-sm font-bold text-zinc-600 dark:text-zinc-400">Akurasi: 0%</div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto text-left text-xs font-semibold">
+          <div class="border border-black dark:border-white p-3 bg-white dark:bg-zinc-900 flex justify-between">
+            <span>Jawaban Benar:</span>
+            <span id="correctCount" class="font-bold">0</span>
+          </div>
+          <div class="border border-black dark:border-white p-3 bg-white dark:bg-zinc-900 flex justify-between">
+            <span>Jawaban Salah:</span>
+            <span id="wrongCount" class="font-bold">0</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+          <button onclick="restartQuiz()" class="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3 px-6 font-bold uppercase tracking-wider text-xs btn-mono">
+            🔄 Coba Lagi Level Ini
+          </button>
+          <button onclick="showLevelSelect()" class="bg-white text-black dark:bg-zinc-900 dark:text-white border-2 border-black dark:border-white py-3 px-6 font-bold uppercase tracking-wider text-xs btn-mono">
+            🏠 Kembali Ke Pilih Level
+          </button>
+        </div>
+      </div>
+
+      <!-- Review Section -->
+      <div class="border-2 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 space-y-4">
+        <h3 class="font-black text-lg uppercase tracking-tight">Evaluasi Jawaban Kamu</h3>
+        <div id="reviewContainer" class="space-y-4 max-h-96 overflow-y-auto pr-2">
+          <!-- Dynamically populated review list -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t-2 border-black dark:border-white py-6 bg-white dark:bg-zinc-900 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-xs font-semibold text-zinc-500 dark:text-zinc-400 gap-2">
+      <div>ENGLISH.BW — Simple, Direct, Effective Learning.</div>
+      <div>Desain Hitam Putih • Font Rubik</div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    const questionsPemula = [
+      {
+        q: "She _____ to the market every Sunday morning.",
+        options: ["go", "goes", "going", "gone"],
+        answer: 1,
+        explanation: "Subjeknya 'She' (orang ketiga tunggal) dalam Present Simple Tense, sehingga kata kerja 'go' mendapat akhiran '-es' menjadi 'goes'."
+      },
+      {
+        q: "I don't have _____ money in my wallet.",
+        options: ["some", "any", "a", "many"],
+        answer: 1,
+        explanation: "Dalam kalimat negatif dengan kata benda tak terhitung (uncountable noun 'money'), kita menggunakan 'any', bukan 'some'."
+      },
+      {
+        q: "_____ you like to drink a cup of tea?",
+        options: ["Would", "Do", "Are", "Will"],
+        answer: 0,
+        explanation: "Ungkapan sopan untuk menawarkan sesuatu secara resmi adalah 'Would you like...?'."
+      },
+      {
+        q: "My brother is older _____ me.",
+        options: ["that", "from", "than", "then"],
+        answer: 2,
+        explanation: "Untuk perbandingan komparatif (older), kata hubung yang benar adalah 'than' (daripada), bukan 'then' atau 'that'."
+      },
+      {
+        q: "They _____ playing football in the yard right now.",
+        options: ["is", "am", "are", "be"],
+        answer: 2,
+        explanation: "Subjek jamak 'They' pada Present Continuous Tense menggunakan auxiliary verb 'are'."
+      },
+      {
+        q: "Which sentence is CORRECT?",
+        options: [
+          "He don't like apples.",
+          "He doesn't likes apples.",
+          "He doesn't like apples.",
+          "He isn't like apples."
+        ],
+        answer: 2,
+        explanation: "Bentuk negatif Present Simple untuk subjek 'He' menggunakan 'doesn't' + verb dasar tanpa '-s' ('doesn't like')."
+      },
+      {
+        q: "We usually have dinner _____ 7:00 PM.",
+        options: ["on", "in", "at", "to"],
+        answer: 2,
+        explanation: "Gunakan kata depan (preposition) 'at' untuk menunjukkan waktu spesifik/jam."
+      },
+      {
+        q: "This book belongs to Sarah. It is _____ book.",
+        options: ["his", "her", "hers", "their"],
+        answer: 1,
+        explanation: "Sarah adalah perempuan, maka kata ganti kepunyaan (possessive adjective) yang diikuti kata benda 'book' adalah 'her'."
+      },
+      {
+        q: "There are two _____ on the table.",
+        options: ["childs", "childrens", "children", "child"],
+        answer: 2,
+        explanation: "Bentuk jamak tidak teratur (irregular plural) dari 'child' adalah 'children' (tanpa 's')."
+      },
+      {
+        q: "_____ book is this on my desk?",
+        options: ["Who", "Whose", "Whom", "Which"],
+        answer: 1,
+        explanation: "Kata tanya 'Whose' digunakan untuk menanyakan kepemilikan (Milik siapa buku ini?)."
+      },
+      {
+        q: "Jakarta is the _____ city in Indonesia.",
+        options: ["big", "bigger", "biggest", "more big"],
+        answer: 2,
+        explanation: "Superlative (paling besar) untuk kata sifat pendek 'big' menggunakan awalan 'the' dan akhiran '-gest' -> 'biggest'."
+      },
+      {
+        q: "I can't talk right now. I _____ a bath.",
+        options: ["take", "takes", "am taking", "was taking"],
+        answer: 2,
+        explanation: "Kejadian yang sedang berlangsung saat ini ('right now') menggunakan Present Continuous Tense ('am taking')."
+      },
+      {
+        q: "Yesterday, I _____ a very interesting movie.",
+        options: ["watch", "watched", "watching", "watches"],
+        answer: 1,
+        explanation: "Keterangan waktu 'Yesterday' menandakan kejadian masa lalu (Past Simple), sehingga memakai V2 ('watched')."
+      },
+      {
+        q: "Look at _____ birds high up in the sky!",
+        options: ["this", "that", "these", "those"],
+        answer: 3,
+        explanation: "Burung-burung berjumlah banyak (jamak) dan berada jauh di langit, maka gunakan 'those' (itu semua)."
+      },
+      {
+        q: "An apple a day keeps the doctor _____.",
+        options: ["away", "far", "out", "off"],
+        answer: 0,
+        explanation: "Peribahasa umum Bahasa Inggris: 'keeps the doctor away' (menjauhkan kita dari penyakit/dokter)."
+      },
+      {
+        q: "What is the opposite of the word 'EXPENSIVE'?",
+        options: ["High", "Cheap", "Rich", "Poor"],
+        answer: 1,
+        explanation: "Lawan kata dari 'expensive' (mahal) adalah 'cheap' (murah)."
+      },
+      {
+        q: "My mother cooks very _____. The food always tastes great.",
+        options: ["good", "well", "best", "nicely"],
+        answer: 1,
+        explanation: "'Well' adalah adverb (kata keterangan) yang menerangkan kata kerja 'cooks'. 'Good' adalah adjective."
+      },
+      {
+        q: "He was born _____ May 15th, 2000.",
+        options: ["in", "on", "at", "by"],
+        answer: 1,
+        explanation: "Untuk tanggal lengkap yang spesifik (tanggal + bulan), gunakan preposition 'on'."
+      },
+      {
+        q: "Do you have _____ eraser I can borrow?",
+        options: ["a", "an", "the", "some"],
+        answer: 1,
+        explanation: "Kata 'eraser' diawali dengan bunyi vokal /ɪˈreɪ.sər/, sehingga menggunakan article 'an'."
+      },
+      {
+        q: "Tom and I are good friends. _____ study together every day.",
+        options: ["They", "You", "We", "Us"],
+        answer: 2,
+        explanation: "Kata ganti subjek untuk 'Tom and I' (Tom dan saya) adalah 'We' (Kami/Kita)."
+      },
+      {
+        q: "The cat is sleeping _____ the sofa.",
+        options: ["on", "in", "between", "underneath"],
+        answer: 0,
+        explanation: "Kucing tidur di atas permukaan sofa, jadi kata depan posisi yang paling alami adalah 'on'."
+      },
+      {
+        q: "How _____ water should I drink every day?",
+        options: ["many", "much", "often", "long"],
+        answer: 1,
+        explanation: "Air ('water') adalah uncountable noun, maka pertanyaan kuantitas menggunakan 'How much'."
+      },
+      {
+        q: "She _____ speak English very fluently when she was young.",
+        options: ["can", "could", "should", "must"],
+        answer: 1,
+        explanation: "'Could' adalah bentuk lampau dari 'can', digunakan untuk membicarakan kemampuan di masa lalu ('when she was young')."
+      },
+      {
+        q: "Choose the CORRECT imperative sentence:",
+        options: [
+          "Please closing the door.",
+          "Please close the door.",
+          "Please closed the door.",
+          "Please to close the door."
+        ],
+        answer: 1,
+        explanation: "Kalimat perintah (imperative) menggunakan kata kerja dasar (infinitive without to) yaitu 'close'."
+      },
+      {
+        q: "Where _____ you go last night?",
+        options: ["do", "does", "did", "were"],
+        answer: 2,
+        explanation: "Pertanyaan masa lalu (last night) dalam Simple Past Tense menggunakan auxiliary verb 'did'."
+      },
+      {
+        q: "I always feel tired _____ I go to bed late.",
+        options: ["so", "when", "but", "although"],
+        answer: 1,
+        explanation: "'When' (ketika) digunakan sebagai kata hubung sebab-kondisi waktu di kalimat ini."
+      },
+      {
+        q: "Is there _____ tea left in the teapot?",
+        options: ["any", "many", "few", "a"],
+        answer: 0,
+        explanation: "Dalam kalimat tanya (interrogative) dengan kata benda tak terhitung ('tea'), gunakan 'any'."
+      },
+      {
+        q: "They have lived in London _____ three years.",
+        options: ["since", "for", "during", "from"],
+        answer: 1,
+        explanation: "Gunakan 'for' untuk menunjukkan durasi waktu ('three years'). 'Since' digunakan untuk titik awal waktu."
+      },
+      {
+        q: "The sun _____ in the east.",
+        options: ["rise", "rises", "rising", "rose"],
+        answer: 1,
+        explanation: "Kenyataan umum (general fact/scientific fact) dinyatakan dalam Present Simple. 'The sun' (singular) -> 'rises'."
+      },
+      {
+        q: "_____ is your favorite singer?",
+        options: ["What", "Where", "Who", "Why"],
+        answer: 2,
+        explanation: "Kata tanya untuk menanyakan orang (penyanyi) adalah 'Who'."
+      }
+    ];
+
+    const questionsMenengah = [
+      {
+        q: "If I _____ enough money, I would buy a new car right now.",
+        options: ["have", "had", "would have", "had had"],
+        answer: 1,
+        explanation: "Ini adalah Second Conditional (pengandaian tidak nyata saat ini). Rumusnya: If + Simple Past (had), ... would + V1."
+      },
+      {
+        q: "By the time the police arrived, the thief _____ away.",
+        options: ["ran", "has run", "had run", "was running"],
+        answer: 2,
+        explanation: "Past Perfect ('had run') digunakan untuk kejadian yang terjadi SEBELUM kejadian lain di masa lalu (polisi datang)."
+      },
+      {
+        q: "The new bridge _____ by the local government next month.",
+        options: ["will build", "will be built", "is built", "was built"],
+        answer: 1,
+        explanation: "Kalimat pasif mendatang (Future Passive Voice): 'will + be + Verb 3' ('will be built')."
+      },
+      {
+        q: "She enjoys _____ books in her free time.",
+        options: ["to read", "reading", "read", "reads"],
+        answer: 1,
+        explanation: "Kata kerja 'enjoy' selalu diikuti oleh Gerund (Verb-ing), yaitu 'reading'."
+      },
+      {
+        q: "I am not used to _____ up so early in the morning.",
+        options: ["wake", "waking", "woke", "woken"],
+        answer: 1,
+        explanation: "Frasa 'be used to' (terbiasa dengan) harus diikuti oleh Gerund (Verb-ing), bukan V1."
+      },
+      {
+        q: "You _____ turn off your phone during the examination. It is strictly forbidden.",
+        options: ["should", "might", "must", "could"],
+        answer: 2,
+        explanation: "'Must' digunakan untuk menunjukkan kewajiban mutlak atau keharusan aturan yang sangat kuat."
+      },
+      {
+        q: "The man _____ lives next door is a famous musician.",
+        options: ["which", "whose", "who", "whom"],
+        answer: 2,
+        explanation: "Relative pronoun 'who' digunakan untuk menggantikan subjek berupa orang ('The man')."
+      },
+      {
+        q: "Neither my mother nor my sisters _____ coming to the party tonight.",
+        options: ["is", "are", "was", "be"],
+        answer: 1,
+        explanation: "Aturan 'Neither... nor...': kata kerja menyesuaikan dengan subjek terdekat ('my sisters' - jamak) -> 'are'."
+      },
+      {
+        q: "He asked me where I _____ the day before.",
+        options: ["go", "went", "had gone", "have gone"],
+        answer: 2,
+        explanation: "Reported Speech untuk pertanyaan masa lalu bergeser dari Simple Past menjadi Past Perfect ('had gone')."
+      },
+      {
+        q: "I would rather stay home than _____ out in this terrible rain.",
+        options: ["go", "going", "to go", "went"],
+        answer: 0,
+        explanation: "Struktur 'would rather [Verb 1] than [Verb 1]' membutuhkan kata kerja bentuk dasar tanpa 'to'."
+      },
+      {
+        q: "We need to _____ the meeting because the manager is ill.",
+        options: ["put off", "call in", "take off", "turn down"],
+        answer: 0,
+        explanation: "Phrasal verb 'put off' berarti menunda (postpone)."
+      },
+      {
+        q: "Despite _____ hard, he failed the final examination.",
+        options: ["he studied", "studying", "of studying", "he study"],
+        answer: 1,
+        explanation: "Preposition 'Despite' harus diikuti oleh Noun Phrase atau Gerund ('studying'), bukan klausa lengkap."
+      },
+      {
+        q: "This laptop is much more expensive _____ I expected.",
+        options: ["as", "than", "that", "from"],
+        answer: 1,
+        explanation: "Bentuk perbandingan komparatif ('more expensive') selalu dipasangkan dengan 'than'."
+      },
+      {
+        q: "I'll call you as soon as I _____ at the airport.",
+        options: ["arrive", "will arrive", "arrived", "am arriving"],
+        answer: 0,
+        explanation: "Dalam time clause yang merujuk ke masa depan (diawali 'as soon as'), gunakan Present Simple ('arrive')."
+      },
+      {
+        q: "She has been working here _____ five years.",
+        options: ["since", "for", "from", "during"],
+        answer: 1,
+        explanation: "Present Perfect Continuous dengan durasi rentang waktu ('five years') menggunakan kata 'for'."
+      },
+      {
+        q: "The idiom 'spill the beans' means to _____.",
+        options: ["make a big mess", "reveal a secret", "cook dinner", "waste food"],
+        answer: 1,
+        explanation: "Ungkapan (idiom) 'spill the beans' berarti membocorkan rahasia secara tidak sengaja."
+      },
+      {
+        q: "I wish I _____ how to swim when I was younger.",
+        options: ["know", "knew", "had known", "have known"],
+        answer: 2,
+        explanation: "Penyesalan atas hal di masa lalu (Past Wish) menggunakan pola 'wish + Past Perfect' ('had known')."
+      },
+      {
+        q: "He denied _____ the window during the break.",
+        options: ["to break", "breaking", "break", "broken"],
+        answer: 1,
+        explanation: "Kata kerja 'deny' (menyangkal) diikuti oleh bentuk Gerund (Verb-ing) -> 'denied breaking'."
+      },
+      {
+        q: "The report _____ sent to all team members yesterday.",
+        options: ["is", "was", "were", "has been"],
+        answer: 1,
+        explanation: "Subjek tunggal 'The report' + kejadian pasif di masa lalu ('yesterday') -> gunakan 'was sent'."
+      },
+      {
+        q: "Hardly _____ entered the room when the lights went out.",
+        options: ["I had", "had I", "did I", "I did"],
+        answer: 1,
+        explanation: "Kalimat yang diawali adverb negatif 'Hardly' mengalami inversi (Inversion): 'Hardly + had + subject + V3'."
+      },
+      {
+        q: "You had better _____ your homework before going out.",
+        options: ["finish", "to finish", "finishing", "finished"],
+        answer: 0,
+        explanation: "Ungkapan 'had better' (sebaiknya) selalu diikuti oleh kata kerja dasar/bare infinitive ('finish')."
+      },
+      {
+        q: "The cake tastes _____.",
+        options: ["deliciously", "delicious", "more deliciously", "delicateness"],
+        answer: 1,
+        explanation: "'Taste' adalah linking verb, sehingga diikuti oleh Adjective ('delicious'), bukan adverb."
+      },
+      {
+        q: "She succeeded _____ passing the difficult entrance exam.",
+        options: ["in", "on", "at", "with"],
+        answer: 0,
+        explanation: "Pasangan preposisi yang tepat untuk kata kerja 'succeed' adalah 'in' ('succeed in doing something')."
+      },
+      {
+        q: "Would you mind _____ the window? It's getting cold.",
+        options: ["close", "to close", "closing", "closed"],
+        answer: 2,
+        explanation: "Ungkapan sopan 'Would you mind...?' harus diikuti oleh Gerund (Verb-ing)."
+      },
+      {
+        q: "Neither of the candidates _____ suitable for the job.",
+        options: ["are", "is", "were", "be"],
+        answer: 1,
+        explanation: "'Neither of + plural noun' secara gramatikal standar dianggap subjek tunggal (singular) -> 'is'."
+      },
+      {
+        q: "If it rains tomorrow, we _____ the outdoor concert.",
+        options: ["cancel", "would cancel", "will cancel", "canceled"],
+        answer: 2,
+        explanation: "First Conditional (kemungkinan nyata di masa depan): 'If + Present Simple, ... will + V1'."
+      },
+      {
+        q: "He is looking forward to _____ you again.",
+        options: ["see", "seeing", "seen", "saw"],
+        answer: 1,
+        explanation: "Dalam frasa 'look forward to', kata 'to' di sini adalah preposisi, maka harus diikuti Gerund ('seeing')."
+      },
+      {
+        q: "It's high time you _____ studying for your final exam.",
+        options: ["start", "started", "have started", "will start"],
+        answer: 1,
+        explanation: "Frasa 'It's high time...' (sudah saatnya) diikuti oleh klausa bernuansa Subjunctive dengan Past Simple ('started')."
+      },
+      {
+        q: "The room was empty; there was _____ there.",
+        options: ["somebody", "nobody", "anybody", "everybody"],
+        answer: 1,
+        explanation: "Ruangan itu kosong, artinya 'tidak ada siapapun' di sana ('there was nobody there')."
+      },
+      {
+        q: "Choose the correct phrase for 'menolak tawaran':",
+        options: ["turn up", "turn off", "turn down", "turn over"],
+        answer: 2,
+        explanation: "Phrasal verb 'turn down' berarti menolak (reject/decline) tawaran atau ajakan."
+      }
+    ];
+
+    let currentLevel = 'pemula';
+    let currentQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let userAnswers = []; // records { qIndex, selectedOpt, isCorrect }
+
+    // Init Theme & High Scores on Load
+    window.onload = function() {
+      initTheme();
+      updateHighScoreDisplay();
+    };
+
+    function initTheme() {
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        document.getElementById('themeToggleBtn').innerText = '☀️ Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('themeToggleBtn').innerText = '🌙 Dark';
+      }
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        document.getElementById('themeToggleBtn').innerText = '🌙 Dark';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        document.getElementById('themeToggleBtn').innerText = '☀️ Light';
+      }
+    }
+
+    function updateHighScoreDisplay() {
+      const hsPemula = localStorage.getItem('hs_pemula') || 0;
+      const hsMenengah = localStorage.getItem('hs_menengah') || 0;
+      document.getElementById('highScorePemula').innerText = `${hsPemula} / 300`;
+      document.getElementById('highScoreMenengah').innerText = `${hsMenengah} / 300`;
+    }
+
+    function showLevelSelect() {
+      document.getElementById('levelSelectScreen').classList.remove('hidden');
+      document.getElementById('quizScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('headerResetBtn').classList.add('hidden');
+      updateHighScoreDisplay();
+    }
+
+    function startQuiz(level) {
+      currentLevel = level;
+      currentQuestions = level === 'pemula' ? questionsPemula : questionsMenengah;
+      currentIndex = 0;
+      score = 0;
+      userAnswers = [];
+
+      document.getElementById('levelSelectScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('quizScreen').classList.remove('hidden');
+      document.getElementById('headerResetBtn').classList.remove('hidden');
+
+      document.getElementById('quizLevelBadge').innerText = level === 'pemula' ? 'LEVEL PEMULA' : 'LEVEL MENENGAH';
+
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const qData = currentQuestions[currentIndex];
+      
+      // Update stats header
+      document.getElementById('quizProgressText').innerText = `SOAL ${currentIndex + 1} DARI ${currentQuestions.length}`;
+      document.getElementById('quizScoreText').innerText = `SKOR: ${score}`;
+      
+      // Update progress bar width
+      const progressPercent = ((currentIndex + 1) / currentQuestions.length) * 100;
+      document.getElementById('progressBar').style.width = `${progressPercent}%`;
+
+      // Set Question text
+      document.getElementById('questionText').innerText = qData.q;
+
+      // Render Options
+      const optionsBox = document.getElementById('optionsContainer');
+      optionsBox.innerHTML = '';
+
+      qData.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `option-btn w-full text-left p-4 border-2 border-black dark:border-white font-medium text-sm sm:text-base flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors`;
+        btn.onclick = () => selectOption(idx);
+        
+        btn.innerHTML = `
+          <div class="flex items-center space-x-3">
+            <span class="w-7 h-7 border-2 border-black dark:border-white font-bold text-xs flex items-center justify-center uppercase bg-zinc-100 dark:bg-zinc-800 shrink-0">
+              ${String.fromCharCode(65 + idx)}
+            </span>
+            <span>${escapeHtml(opt)}</span>
+          </div>
+          <span class="status-icon font-bold"></span>
+        `;
+        optionsBox.appendChild(btn);
+      });
+
+      // Hide Explanation & Disable Next button
+      const expBox = document.getElementById('explanationBox');
+      expBox.classList.add('hidden');
+
+      const nextBtn = document.getElementById('nextBtn');
+      nextBtn.disabled = true;
+      nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      nextBtn.innerText = currentIndex === currentQuestions.length - 1 ? 'Selesai →' : 'Lanjut →';
+    }
+
+    function selectOption(selectedIdx) {
+      const qData = currentQuestions[currentIndex];
+      const optionsBox = document.getElementById('optionsContainer');
+      const optionButtons = optionsBox.querySelectorAll('.option-btn');
+
+      // Prevent multiple clicks
+      if (userAnswers[currentIndex] !== undefined) return;
+
+      const isCorrect = selectedIdx === qData.answer;
+      if (isCorrect) {
+        score += 10;
+      }
+
+      // Record user answer
+      userAnswers[currentIndex] = {
+        question: qData.q,
+        selected: selectedIdx,
+        correct: qData.answer,
+        isCorrect: isCorrect,
+        explanation: qData.explanation,
+        options: qData.options
+      };
+
+      // Update UI for each option button
+      optionButtons.forEach((btn, idx) => {
+        btn.disabled = true;
+        btn.classList.remove('hover:bg-zinc-100', 'dark:hover:bg-zinc-800');
+
+        if (idx === qData.answer) {
+          // Highlight correct answer in solid monochrome styling
+          btn.classList.add('bg-black', 'text-white', 'dark:bg-white', 'dark:text-black', 'font-bold');
+          btn.querySelector('.status-icon').innerText = '✓';
+        } else if (idx === selectedIdx && !isCorrect) {
+          // Highlight wrong choice
+          btn.classList.add('bg-zinc-200', 'dark:bg-zinc-800', 'line-through');
+          btn.querySelector('.status-icon').innerText = '✗';
+        } else {
+          btn.classList.add('opacity-40');
+        }
+      });
+
+      // Show explanation box
+      const expBox = document.getElementById('explanationBox');
+      const badge = document.getElementById('feedbackBadge');
+      const expText = document.getElementById('explanationText');
+
+      if (isCorrect) {
+        badge.className = 'font-black text-xs uppercase px-2.5 py-1 bg-black text-white dark:bg-white dark:text-black';
+        badge.innerText = '✓ JAWABAN BENAR';
+      } else {
+        badge.className = 'font-black text-xs uppercase px-2.5 py-1 border-2 border-black dark:border-white bg-white dark:bg-zinc-900 text-black dark:text-white';
+        badge.innerText = '✗ JAWABAN SALAH';
+      }
+
+      expText.innerText = qData.explanation;
+      expBox.classList.remove('hidden');
+
+      // Update current score counter in header
+      document.getElementById('quizScoreText').innerText = `SKOR: ${score}`;
+
+      // Enable Next button
+      const nextBtn = document.getElementById('nextBtn');
+      nextBtn.disabled = false;
+      nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+
+    function nextQuestion() {
+      if (currentIndex < currentQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        showResultScreen();
+      }
+    }
+
+    function showResultScreen() {
+      document.getElementById('quizScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+
+      const maxScore = currentQuestions.length * 10;
+      const percentage = Math.round((score / maxScore) * 100);
+      const correctCount = userAnswers.filter(a => a.isCorrect).length;
+      const wrongCount = userAnswers.length - correctCount;
+
+      document.getElementById('finalScore').innerText = `${score} / ${maxScore}`;
+      document.getElementById('finalPercentage').innerText = `Akurasi: ${percentage}%`;
+      document.getElementById('correctCount').innerText = correctCount;
+      document.getElementById('wrongCount').innerText = wrongCount;
+
+      // Evaluation title based on percentage
+      const titleElem = document.getElementById('resultTitle');
+      if (percentage >= 90) {
+        titleElem.innerText = 'Luar Biasa! Sempurna!';
+      } else if (percentage >= 70) {
+        titleElem.innerText = 'Kerja Bagus!';
+      } else if (percentage >= 50) {
+        titleElem.innerText = 'Cukup Baik!';
+      } else {
+        titleElem.innerText = 'Perlu Lebih Banyak Latihan!';
+      }
+
+      // Save to local storage if higher
+      const storageKey = currentLevel === 'pemula' ? 'hs_pemula' : 'hs_menengah';
+      const prevHs = parseInt(localStorage.getItem(storageKey) || '0', 10);
+      if (score > prevHs) {
+        localStorage.setItem(storageKey, score.toString());
+      }
+
+      // Render evaluation list
+      renderReviewList();
+    }
+
+    function renderReviewList() {
+      const container = document.getElementById('reviewContainer');
+      container.innerHTML = '';
+
+      userAnswers.forEach((ans, idx) => {
+        const item = document.createElement('div');
+        item.className = `p-4 border-2 border-black dark:border-white ${ans.isCorrect ? 'bg-zinc-50 dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-800/80'} space-y-2 text-xs sm:text-sm`;
+
+        item.innerHTML = `
+          <div class="flex justify-between items-start gap-2">
+            <span class="font-bold">#${idx + 1}. ${escapeHtml(ans.question)}</span>
+            <span class="font-black text-xs px-2 py-0.5 border border-black dark:border-white shrink-0 ${ans.isCorrect ? 'bg-black text-white dark:bg-white dark:text-black' : 'bg-white text-black dark:bg-zinc-900 dark:text-white'}">
+              ${ans.isCorrect ? 'BENAR (+10)' : 'SALAH (0)'}
+            </span>
+          </div>
+          <div class="text-zinc-600 dark:text-zinc-400 space-y-1">
+            <div><strong>Jawaban Kamu:</strong> ${escapeHtml(ans.options[ans.selected])}</div>
+            ${!ans.isCorrect ? `<div><strong>Jawaban Seharusnya:</strong> <span class="font-semibold text-black dark:text-white">${escapeHtml(ans.options[ans.correct])}</span></div>` : ''}
+          </div>
+          <div class="pt-2 border-t border-dashed border-zinc-300 dark:border-zinc-700 text-xs italic">
+            💡 ${escapeHtml(ans.explanation)}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function restartQuiz() {
+      startQuiz(currentLevel);
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>

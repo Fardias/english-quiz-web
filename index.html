@@ -98,7 +98,7 @@
       <div class="text-center space-y-3 py-6">
         <h1 class="text-4xl sm:text-5xl font-black uppercase tracking-tight">Kuasai Bahasa Inggris</h1>
         <p class="text-zinc-600 dark:text-zinc-400 font-medium text-base sm:text-lg max-w-xl mx-auto">
-          Belajar grammar & kosakata tanpa ribet. Pilih level, selesaikan 30 soal, dan pahami penjelasan di setiap jawaban.
+          Belajar grammar & kosakata tanpa ribet. Pilih level, selesaikan 20 soal, dan pahami penjelasan di setiap jawaban.
         </p>
       </div>
 
@@ -109,7 +109,7 @@
           <div>
             <div class="flex justify-between items-center mb-4">
               <span class="bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase px-3 py-1">Level 01</span>
-              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">30 Soal</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">20 Soal</span>
             </div>
             <h2 class="text-2xl font-black uppercase mb-2">Pemula (Beginner)</h2>
             <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
@@ -119,7 +119,7 @@
           <div class="space-y-4">
             <div class="border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 pt-3 flex justify-between text-xs font-semibold">
               <span>Skor Tertinggi:</span>
-              <span id="highScorePemula" class="font-bold">0 / 300</span>
+              <span id="highScorePemula" class="font-bold">0 / 200</span>
             </div>
             <button onclick="startQuiz('pemula')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
               Mulai Level Pemula →
@@ -132,7 +132,7 @@
           <div>
             <div class="flex justify-between items-center mb-4">
               <span class="bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase px-3 py-1">Level 02</span>
-              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">30 Soal</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">20 Soal</span>
             </div>
             <h2 class="text-2xl font-black uppercase mb-2">Menengah (Intermediate)</h2>
             <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
@@ -142,7 +142,7 @@
           <div class="space-y-4">
             <div class="border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 pt-3 flex justify-between text-xs font-semibold">
               <span>Skor Tertinggi:</span>
-              <span id="highScoreMenengah" class="font-bold">0 / 300</span>
+              <span id="highScoreMenengah" class="font-bold">0 / 200</span>
             </div>
             <button onclick="startQuiz('menengah')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
               Mulai Level Menengah →
@@ -156,7 +156,7 @@
         <h3 class="font-bold text-xs uppercase tracking-widest mb-4 text-center">Aturan & Metode Belajar</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-xs font-medium">
           <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
-            <div class="font-black text-lg mb-1">30 SOAL</div>
+            <div class="font-black text-lg mb-1">20 SOAL</div>
             <span>Uji kemampuan dalam satu sesi terstruktur.</span>
           </div>
           <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
@@ -164,7 +164,7 @@
             <span>Pelajari alasan jawaban salah & benar secara detail.</span>
           </div>
           <div class="p-3 border border-zinc-300 dark:border-zinc-800 bg-white dark:bg-zinc-900">
-            <div class="font-black text-lg mb-1">SKOR MAX 300</div>
+            <div class="font-black text-lg mb-1">SKOR MAX 200</div>
             <span>Dapatkan +10 poin untuk tiap jawaban yang benar.</span>
           </div>
         </div>
@@ -178,28 +178,46 @@
       <div class="border-2 border-black dark:border-white p-4 bg-white dark:bg-zinc-900 space-y-3">
         <div class="flex justify-between items-center text-xs font-bold uppercase tracking-wider">
           <span id="quizLevelBadge" class="bg-black text-white dark:bg-white dark:text-black px-2 py-0.5">LEVEL</span>
-          <span id="quizProgressText">SOAL 1 DARI 30</span>
+          <span id="quizProgressText">SOAL 1 DARI 20</span>
           <span id="quizScoreText" class="text-sm font-black">SKOR: 0</span>
         </div>
         
         <!-- Custom Monochrome Progress Bar -->
         <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-3 border border-black dark:border-white overflow-hidden">
-          <div id="progressBar" class="bg-black dark:bg-white h-full transition-all duration-300" style="width: 3.33%"></div>
+          <div id="progressBar" class="bg-black dark:bg-white h-full transition-all duration-300" style="width: 5%"></div>
         </div>
       </div>
 
       <!-- Question Box -->
       <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 sm:p-8 card-mono space-y-6">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">Pertanyaan</span>
-          <h2 id="questionText" class="text-xl sm:text-2xl font-bold leading-snug">
-            Loading question...
-          </h2>
+        <div class="flex items-start justify-between gap-4">
+          <div class="min-w-0">
+            <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">Pertanyaan</span>
+            <h2 id="questionText" class="text-xl sm:text-2xl font-bold leading-snug">
+              Loading question...
+            </h2>
+          </div>
+          <button id="translateBtn" onclick="toggleTranslation()" title="Terjemahkan soal ini ke Bahasa Indonesia" class="shrink-0 bg-white text-black dark:bg-zinc-900 dark:text-white border-2 border-black dark:border-white px-3 py-2 font-bold uppercase tracking-wider text-xs btn-mono whitespace-nowrap">
+            🌐 Terjemahkan
+          </button>
         </div>
 
         <!-- Options Container -->
         <div id="optionsContainer" class="space-y-3">
           <!-- Options generated dynamically -->
+        </div>
+
+        <!-- Translation Panel (Hidden by default, toggled by translate button) -->
+        <div id="translationBox" class="hidden border-2 border-black dark:border-white bg-zinc-100 dark:bg-zinc-800 p-5 space-y-4">
+          <div class="flex items-center space-x-2">
+            <span class="font-black text-xs uppercase px-2.5 py-1 bg-black text-white dark:bg-white dark:text-black">🌐 Terjemahan</span>
+            <span class="font-bold text-sm uppercase tracking-wider">Arti Per Kata</span>
+          </div>
+          <div id="wordList" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm"></div>
+          <div class="pt-3 border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 space-y-1">
+            <div class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Terjemahan Kalimat</div>
+            <p id="sentenceTranslation" class="text-sm font-semibold leading-relaxed"></p>
+          </div>
         </div>
 
         <!-- Explanation Card (Hidden initially) -->
@@ -231,13 +249,13 @@
         
         <div>
           <h2 id="resultTitle" class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-2">Kerja Bagus!</h2>
-          <p id="resultSubtitle" class="text-zinc-600 dark:text-zinc-400 font-medium">Kamu telah menyelesaikan seluruh 30 pertanyaan.</p>
+          <p id="resultSubtitle" class="text-zinc-600 dark:text-zinc-400 font-medium">Kamu telah menyelesaikan seluruh 20 pertanyaan.</p>
         </div>
 
         <!-- Big Score Display -->
         <div class="border-2 border-black dark:border-white py-6 bg-zinc-50 dark:bg-zinc-950 max-w-sm mx-auto space-y-1">
           <div class="text-xs font-bold uppercase tracking-widest text-zinc-500">Total Skor Kamu</div>
-          <div id="finalScore" class="text-5xl font-black tracking-tighter">0 / 300</div>
+          <div id="finalScore" class="text-5xl font-black tracking-tighter">0 / 200</div>
           <div id="finalPercentage" class="text-sm font-bold text-zinc-600 dark:text-zinc-400">Akurasi: 0%</div>
         </div>
 
@@ -245,11 +263,11 @@
         <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto text-left text-xs font-semibold">
           <div class="border border-black dark:border-white p-3 bg-white dark:bg-zinc-900 flex justify-between">
             <span>Jawaban Benar:</span>
-            <span id="correctCount" class="font-bold">0</span>
+            <span id="correctCount" class="font-bold text-green-600">0</span>
           </div>
           <div class="border border-black dark:border-white p-3 bg-white dark:bg-zinc-900 flex justify-between">
             <span>Jawaban Salah:</span>
-            <span id="wrongCount" class="font-bold">0</span>
+            <span id="wrongCount" class="font-bold text-red-600">0</span>
           </div>
         </div>
 
@@ -285,196 +303,168 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
+    // Catatan format: words = [kata Inggris, arti Indonesia, (opsional) true jika kata ini
+    // adalah jawaban yang mengisi bagian rumpang "_____"]. translation = arti kalimat utuh.
     const questionsPemula = [
       {
         q: "She _____ to the market every Sunday morning.",
         options: ["go", "goes", "going", "gone"],
         answer: 1,
-        explanation: "Subjeknya 'She' (orang ketiga tunggal) dalam Present Simple Tense, sehingga kata kerja 'go' mendapat akhiran '-es' menjadi 'goes'."
+        explanation: "Subjeknya 'She' (orang ketiga tunggal) dalam Present Simple Tense, sehingga kata kerja 'go' mendapat akhiran '-es' menjadi 'goes'.",
+        words: [["She", "dia (perempuan)"], ["goes", "pergi", true], ["to", "ke"], ["the", "kata sandang untuk benda tertentu"], ["market", "pasar"], ["every", "setiap"], ["Sunday", "hari Minggu"], ["morning", "pagi"]],
+        translation: "Dia (perempuan) pergi ke pasar setiap Minggu pagi."
       },
       {
         q: "I don't have _____ money in my wallet.",
         options: ["some", "any", "a", "many"],
         answer: 1,
-        explanation: "Dalam kalimat negatif dengan kata benda tak terhitung (uncountable noun 'money'), kita menggunakan 'any', bukan 'some'."
+        explanation: "Dalam kalimat negatif dengan kata benda tak terhitung (uncountable noun 'money'), kita menggunakan 'any', bukan 'some'.",
+        words: [["I", "saya"], ["don't", "tidak"], ["have", "punya"], ["any", "sedikit pun", true], ["money", "uang"], ["in", "di dalam"], ["my", "milik saya"], ["wallet", "dompet"]],
+        translation: "Saya tidak punya uang di dompet saya."
       },
       {
         q: "_____ you like to drink a cup of tea?",
         options: ["Would", "Do", "Are", "Will"],
         answer: 0,
-        explanation: "Ungkapan sopan untuk menawarkan sesuatu secara resmi adalah 'Would you like...?'."
+        explanation: "Ungkapan sopan untuk menawarkan sesuatu secara resmi adalah 'Would you like...?'.",
+        words: [["Would", "maukah", true], ["you", "kamu"], ["like", "ingin"], ["to", "untuk"], ["drink", "minum"], ["a", "sebuah"], ["cup", "cangkir"], ["of", "dari"], ["tea", "teh"]],
+        translation: "Maukah kamu minum secangkir teh?"
       },
       {
         q: "My brother is older _____ me.",
         options: ["that", "from", "than", "then"],
         answer: 2,
-        explanation: "Untuk perbandingan komparatif (older), kata hubung yang benar adalah 'than' (daripada), bukan 'then' atau 'that'."
+        explanation: "Untuk perbandingan komparatif (older), kata hubung yang benar adalah 'than' (daripada), bukan 'then' atau 'that'.",
+        words: [["My", "milik saya"], ["brother", "saudara laki-laki"], ["is", "adalah"], ["older", "lebih tua"], ["than", "daripada", true], ["me", "saya"]],
+        translation: "Saudara laki-laki saya lebih tua daripada saya."
       },
       {
         q: "They _____ playing football in the yard right now.",
         options: ["is", "am", "are", "be"],
         answer: 2,
-        explanation: "Subjek jamak 'They' pada Present Continuous Tense menggunakan auxiliary verb 'are'."
-      },
-      {
-        q: "Which sentence is CORRECT?",
-        options: [
-          "He don't like apples.",
-          "He doesn't likes apples.",
-          "He doesn't like apples.",
-          "He isn't like apples."
-        ],
-        answer: 2,
-        explanation: "Bentuk negatif Present Simple untuk subjek 'He' menggunakan 'doesn't' + verb dasar tanpa '-s' ('doesn't like')."
+        explanation: "Subjek jamak 'They' pada Present Continuous Tense menggunakan auxiliary verb 'are'.",
+        words: [["They", "mereka"], ["are", "sedang (kata bantu untuk jamak)", true], ["playing", "bermain"], ["football", "sepak bola"], ["in", "di"], ["the", "kata sandang untuk benda tertentu"], ["yard", "halaman"], ["right now", "sekarang"]],
+        translation: "Mereka sedang bermain sepak bola di halaman sekarang."
       },
       {
         q: "We usually have dinner _____ 7:00 PM.",
         options: ["on", "in", "at", "to"],
         answer: 2,
-        explanation: "Gunakan kata depan (preposition) 'at' untuk menunjukkan waktu spesifik/jam."
+        explanation: "Gunakan kata depan (preposition) 'at' untuk menunjukkan waktu spesifik/jam.",
+        words: [["We", "kami"], ["usually", "biasanya"], ["have", "makan"], ["dinner", "makan malam"], ["at", "pada", true], ["7:00 PM", "pukul 7 malam"]],
+        translation: "Kami biasanya makan malam pada pukul 7 malam."
       },
       {
         q: "This book belongs to Sarah. It is _____ book.",
         options: ["his", "her", "hers", "their"],
         answer: 1,
-        explanation: "Sarah adalah perempuan, maka kata ganti kepunyaan (possessive adjective) yang diikuti kata benda 'book' adalah 'her'."
+        explanation: "Sarah adalah perempuan, maka kata ganti kepunyaan (possessive adjective) yang diikuti kata benda 'book' adalah 'her'.",
+        words: [["This", "ini"], ["book", "buku"], ["belongs to", "milik"], ["Sarah", "Sarah"], ["It", "itu"], ["is", "adalah"], ["her", "miliknya (perempuan)", true], ["book", "buku"]],
+        translation: "Buku ini milik Sarah. Itu adalah bukunya (Sarah)."
       },
       {
         q: "There are two _____ on the table.",
         options: ["childs", "childrens", "children", "child"],
         answer: 2,
-        explanation: "Bentuk jamak tidak teratur (irregular plural) dari 'child' adalah 'children' (tanpa 's')."
+        explanation: "Bentuk jamak tidak teratur (irregular plural) dari 'child' adalah 'children' (tanpa 's').",
+        words: [["There are", "ada"], ["two", "dua"], ["children", "anak-anak", true], ["on", "di atas"], ["the", "kata sandang untuk benda tertentu"], ["table", "meja"]],
+        translation: "Ada dua anak di atas meja."
       },
       {
         q: "_____ book is this on my desk?",
         options: ["Who", "Whose", "Whom", "Which"],
         answer: 1,
-        explanation: "Kata tanya 'Whose' digunakan untuk menanyakan kepemilikan (Milik siapa buku ini?)."
+        explanation: "Kata tanya 'Whose' digunakan untuk menanyakan kepemilikan (Milik siapa buku ini?).",
+        words: [["Whose", "milik siapa", true], ["book", "buku"], ["is", "adalah"], ["this", "ini"], ["on", "di atas"], ["my", "milik saya"], ["desk", "meja kerja"]],
+        translation: "Buku siapa ini di meja saya?"
       },
       {
         q: "Jakarta is the _____ city in Indonesia.",
         options: ["big", "bigger", "biggest", "more big"],
         answer: 2,
-        explanation: "Superlative (paling besar) untuk kata sifat pendek 'big' menggunakan awalan 'the' dan akhiran '-gest' -> 'biggest'."
+        explanation: "Superlative (paling besar) untuk kata sifat pendek 'big' menggunakan awalan 'the' dan akhiran '-gest' -> 'biggest'.",
+        words: [["Jakarta", "Jakarta"], ["is", "adalah"], ["the", "kata sandang untuk benda tertentu"], ["biggest", "terbesar", true], ["city", "kota"], ["in", "di"], ["Indonesia", "Indonesia"]],
+        translation: "Jakarta adalah kota terbesar di Indonesia."
       },
       {
         q: "I can't talk right now. I _____ a bath.",
         options: ["take", "takes", "am taking", "was taking"],
         answer: 2,
-        explanation: "Kejadian yang sedang berlangsung saat ini ('right now') menggunakan Present Continuous Tense ('am taking')."
+        explanation: "Kejadian yang sedang berlangsung saat ini ('right now') menggunakan Present Continuous Tense ('am taking').",
+        words: [["I", "saya"], ["can't", "tidak bisa"], ["talk", "bicara"], ["right now", "sekarang"], ["I", "saya"], ["am taking", "sedang mandi", true], ["a", "sebuah"], ["bath", "mandi"]],
+        translation: "Saya tidak bisa bicara sekarang. Saya sedang mandi."
       },
       {
         q: "Yesterday, I _____ a very interesting movie.",
         options: ["watch", "watched", "watching", "watches"],
         answer: 1,
-        explanation: "Keterangan waktu 'Yesterday' menandakan kejadian masa lalu (Past Simple), sehingga memakai V2 ('watched')."
-      },
-      {
-        q: "Look at _____ birds high up in the sky!",
-        options: ["this", "that", "these", "those"],
-        answer: 3,
-        explanation: "Burung-burung berjumlah banyak (jamak) dan berada jauh di langit, maka gunakan 'those' (itu semua)."
-      },
-      {
-        q: "An apple a day keeps the doctor _____.",
-        options: ["away", "far", "out", "off"],
-        answer: 0,
-        explanation: "Peribahasa umum Bahasa Inggris: 'keeps the doctor away' (menjauhkan kita dari penyakit/dokter)."
-      },
-      {
-        q: "What is the opposite of the word 'EXPENSIVE'?",
-        options: ["High", "Cheap", "Rich", "Poor"],
-        answer: 1,
-        explanation: "Lawan kata dari 'expensive' (mahal) adalah 'cheap' (murah)."
+        explanation: "Keterangan waktu 'Yesterday' menandakan kejadian masa lalu (Past Simple), sehingga memakai V2 ('watched').",
+        words: [["Yesterday", "kemarin"], ["I", "saya"], ["watched", "menonton (bentuk lampau)", true], ["a", "sebuah"], ["very", "sangat"], ["interesting", "menarik"], ["movie", "film"]],
+        translation: "Kemarin, saya menonton film yang sangat menarik."
       },
       {
         q: "My mother cooks very _____. The food always tastes great.",
         options: ["good", "well", "best", "nicely"],
         answer: 1,
-        explanation: "'Well' adalah adverb (kata keterangan) yang menerangkan kata kerja 'cooks'. 'Good' adalah adjective."
+        explanation: "'Well' adalah adverb (kata keterangan) yang menerangkan kata kerja 'cooks'. 'Good' adalah adjective.",
+        words: [["My", "milik saya"], ["mother", "ibu"], ["cooks", "memasak"], ["very", "sangat"], ["well", "dengan baik", true], ["The", "kata sandang untuk benda tertentu"], ["food", "makanan"], ["always", "selalu"], ["tastes", "terasa"], ["great", "lezat"]],
+        translation: "Ibu saya memasak dengan sangat baik. Makanannya selalu terasa lezat."
       },
       {
         q: "He was born _____ May 15th, 2000.",
         options: ["in", "on", "at", "by"],
         answer: 1,
-        explanation: "Untuk tanggal lengkap yang spesifik (tanggal + bulan), gunakan preposition 'on'."
+        explanation: "Untuk tanggal lengkap yang spesifik (tanggal + bulan), gunakan preposition 'on'.",
+        words: [["He", "dia (laki-laki)"], ["was born", "lahir"], ["on", "pada", true], ["May", "Mei"], ["15th, 2000", "tanggal 15 tahun 2000"]],
+        translation: "Dia lahir pada 15 Mei 2000."
       },
       {
         q: "Do you have _____ eraser I can borrow?",
         options: ["a", "an", "the", "some"],
         answer: 1,
-        explanation: "Kata 'eraser' diawali dengan bunyi vokal /ɪˈreɪ.sər/, sehingga menggunakan article 'an'."
+        explanation: "Kata 'eraser' diawali dengan bunyi vokal /ɪˈreɪ.sər/, sehingga menggunakan article 'an'.",
+        words: [["Do", "apakah"], ["you", "kamu"], ["have", "punya"], ["an", "sebuah (untuk bunyi vokal)", true], ["eraser", "penghapus"], ["I", "saya"], ["can", "bisa"], ["borrow", "meminjam"]],
+        translation: "Apakah kamu punya penghapus yang bisa saya pinjam?"
       },
       {
         q: "Tom and I are good friends. _____ study together every day.",
         options: ["They", "You", "We", "Us"],
         answer: 2,
-        explanation: "Kata ganti subjek untuk 'Tom and I' (Tom dan saya) adalah 'We' (Kami/Kita)."
+        explanation: "Kata ganti subjek untuk 'Tom and I' (Tom dan saya) adalah 'We' (Kami/Kita).",
+        words: [["Tom and I", "Tom dan saya"], ["are", "adalah"], ["good", "baik"], ["friends", "teman-teman"], ["We", "kami/kita", true], ["study", "belajar"], ["together", "bersama"], ["every day", "setiap hari"]],
+        translation: "Tom dan saya adalah teman baik. Kami belajar bersama setiap hari."
       },
       {
         q: "The cat is sleeping _____ the sofa.",
         options: ["on", "in", "between", "underneath"],
         answer: 0,
-        explanation: "Kucing tidur di atas permukaan sofa, jadi kata depan posisi yang paling alami adalah 'on'."
+        explanation: "Kucing tidur di atas permukaan sofa, jadi kata depan posisi yang paling alami adalah 'on'.",
+        words: [["The", "kata sandang untuk benda tertentu"], ["cat", "kucing"], ["is sleeping", "sedang tidur"], ["on", "di atas", true], ["the", "kata sandang untuk benda tertentu"], ["sofa", "sofa"]],
+        translation: "Kucing itu sedang tidur di atas sofa."
       },
       {
         q: "How _____ water should I drink every day?",
         options: ["many", "much", "often", "long"],
         answer: 1,
-        explanation: "Air ('water') adalah uncountable noun, maka pertanyaan kuantitas menggunakan 'How much'."
+        explanation: "Air ('water') adalah uncountable noun, maka pertanyaan kuantitas menggunakan 'How much'.",
+        words: [["How", "berapa"], ["much", "banyak (untuk benda tak terhitung)", true], ["water", "air"], ["should", "sebaiknya"], ["I", "saya"], ["drink", "minum"], ["every day", "setiap hari"]],
+        translation: "Berapa banyak air yang sebaiknya saya minum setiap hari?"
       },
       {
         q: "She _____ speak English very fluently when she was young.",
         options: ["can", "could", "should", "must"],
         answer: 1,
-        explanation: "'Could' adalah bentuk lampau dari 'can', digunakan untuk membicarakan kemampuan di masa lalu ('when she was young')."
-      },
-      {
-        q: "Choose the CORRECT imperative sentence:",
-        options: [
-          "Please closing the door.",
-          "Please close the door.",
-          "Please closed the door.",
-          "Please to close the door."
-        ],
-        answer: 1,
-        explanation: "Kalimat perintah (imperative) menggunakan kata kerja dasar (infinitive without to) yaitu 'close'."
+        explanation: "'Could' adalah bentuk lampau dari 'can', digunakan untuk membicarakan kemampuan di masa lalu ('when she was young').",
+        words: [["She", "dia (perempuan)"], ["could", "bisa (bentuk lampau)", true], ["speak", "berbicara"], ["English", "bahasa Inggris"], ["very", "sangat"], ["fluently", "dengan lancar"], ["when", "ketika"], ["she", "dia (perempuan)"], ["was", "adalah (bentuk lampau)"], ["young", "muda"]],
+        translation: "Dia (perempuan) bisa berbicara bahasa Inggris dengan sangat lancar ketika masih muda."
       },
       {
         q: "Where _____ you go last night?",
         options: ["do", "does", "did", "were"],
         answer: 2,
-        explanation: "Pertanyaan masa lalu (last night) dalam Simple Past Tense menggunakan auxiliary verb 'did'."
-      },
-      {
-        q: "I always feel tired _____ I go to bed late.",
-        options: ["so", "when", "but", "although"],
-        answer: 1,
-        explanation: "'When' (ketika) digunakan sebagai kata hubung sebab-kondisi waktu di kalimat ini."
-      },
-      {
-        q: "Is there _____ tea left in the teapot?",
-        options: ["any", "many", "few", "a"],
-        answer: 0,
-        explanation: "Dalam kalimat tanya (interrogative) dengan kata benda tak terhitung ('tea'), gunakan 'any'."
-      },
-      {
-        q: "They have lived in London _____ three years.",
-        options: ["since", "for", "during", "from"],
-        answer: 1,
-        explanation: "Gunakan 'for' untuk menunjukkan durasi waktu ('three years'). 'Since' digunakan untuk titik awal waktu."
-      },
-      {
-        q: "The sun _____ in the east.",
-        options: ["rise", "rises", "rising", "rose"],
-        answer: 1,
-        explanation: "Kenyataan umum (general fact/scientific fact) dinyatakan dalam Present Simple. 'The sun' (singular) -> 'rises'."
-      },
-      {
-        q: "_____ is your favorite singer?",
-        options: ["What", "Where", "Who", "Why"],
-        answer: 2,
-        explanation: "Kata tanya untuk menanyakan orang (penyanyi) adalah 'Who'."
+        explanation: "Pertanyaan masa lalu (last night) dalam Simple Past Tense menggunakan auxiliary verb 'did'.",
+        words: [["Where", "ke mana"], ["did", "kata bantu tanya (bentuk lampau)", true], ["you", "kamu"], ["go", "pergi"], ["last night", "tadi malam"]],
+        translation: "Ke mana kamu pergi tadi malam?"
       }
     ];
 
@@ -483,181 +473,161 @@
         q: "If I _____ enough money, I would buy a new car right now.",
         options: ["have", "had", "would have", "had had"],
         answer: 1,
-        explanation: "Ini adalah Second Conditional (pengandaian tidak nyata saat ini). Rumusnya: If + Simple Past (had), ... would + V1."
+        explanation: "Ini adalah Second Conditional (pengandaian tidak nyata saat ini). Rumusnya: If + Simple Past (had), ... would + V1.",
+        words: [["If", "jika"], ["I", "saya"], ["had", "punya (bentuk lampau)", true], ["enough", "cukup"], ["money", "uang"], ["I", "saya"], ["would", "akan"], ["buy", "membeli"], ["a", "sebuah"], ["new", "baru"], ["car", "mobil"], ["right now", "sekarang"]],
+        translation: "Jika saya punya cukup uang, saya akan membeli mobil baru sekarang."
       },
       {
         q: "By the time the police arrived, the thief _____ away.",
         options: ["ran", "has run", "had run", "was running"],
         answer: 2,
-        explanation: "Past Perfect ('had run') digunakan untuk kejadian yang terjadi SEBELUM kejadian lain di masa lalu (polisi datang)."
+        explanation: "Past Perfect ('had run') digunakan untuk kejadian yang terjadi SEBELUM kejadian lain di masa lalu (polisi datang).",
+        words: [["By the time", "pada saat"], ["the", "kata sandang untuk benda tertentu"], ["police", "polisi"], ["arrived", "tiba"], ["the", "kata sandang untuk benda tertentu"], ["thief", "pencuri"], ["had run", "sudah lari", true], ["away", "menjauh"]],
+        translation: "Pada saat polisi tiba, pencuri itu sudah melarikan diri."
       },
       {
         q: "The new bridge _____ by the local government next month.",
         options: ["will build", "will be built", "is built", "was built"],
         answer: 1,
-        explanation: "Kalimat pasif mendatang (Future Passive Voice): 'will + be + Verb 3' ('will be built')."
+        explanation: "Kalimat pasif mendatang (Future Passive Voice): 'will + be + Verb 3' ('will be built').",
+        words: [["The", "kata sandang untuk benda tertentu"], ["new", "baru"], ["bridge", "jembatan"], ["will be built", "akan dibangun", true], ["by", "oleh"], ["the", "kata sandang untuk benda tertentu"], ["local", "daerah"], ["government", "pemerintah"], ["next month", "bulan depan"]],
+        translation: "Jembatan baru itu akan dibangun oleh pemerintah daerah bulan depan."
       },
       {
         q: "She enjoys _____ books in her free time.",
         options: ["to read", "reading", "read", "reads"],
         answer: 1,
-        explanation: "Kata kerja 'enjoy' selalu diikuti oleh Gerund (Verb-ing), yaitu 'reading'."
+        explanation: "Kata kerja 'enjoy' selalu diikuti oleh Gerund (Verb-ing), yaitu 'reading'.",
+        words: [["She", "dia (perempuan)"], ["enjoys", "menikmati"], ["reading", "membaca", true], ["books", "buku-buku"], ["in", "pada"], ["her", "miliknya (perempuan)"], ["free time", "waktu luang"]],
+        translation: "Dia (perempuan) menikmati membaca buku-buku di waktu luangnya."
       },
       {
         q: "I am not used to _____ up so early in the morning.",
         options: ["wake", "waking", "woke", "woken"],
         answer: 1,
-        explanation: "Frasa 'be used to' (terbiasa dengan) harus diikuti oleh Gerund (Verb-ing), bukan V1."
+        explanation: "Frasa 'be used to' (terbiasa dengan) harus diikuti oleh Gerund (Verb-ing), bukan V1.",
+        words: [["I", "saya"], ["am not used to", "tidak terbiasa"], ["waking", "bangun (bentuk -ing)", true], ["up", "bangun"], ["so", "begitu"], ["early", "pagi"], ["in the morning", "di pagi hari"]],
+        translation: "Saya tidak terbiasa bangun begitu pagi."
       },
       {
         q: "You _____ turn off your phone during the examination. It is strictly forbidden.",
         options: ["should", "might", "must", "could"],
         answer: 2,
-        explanation: "'Must' digunakan untuk menunjukkan kewajiban mutlak atau keharusan aturan yang sangat kuat."
+        explanation: "'Must' digunakan untuk menunjukkan kewajiban mutlak atau keharusan aturan yang sangat kuat.",
+        words: [["You", "kamu"], ["must", "harus", true], ["turn off", "mematikan"], ["your", "milikmu"], ["phone", "telepon"], ["during", "selama"], ["the", "kata sandang untuk benda tertentu"], ["examination", "ujian"], ["It", "itu"], ["is", "adalah"], ["strictly", "secara ketat"], ["forbidden", "dilarang"]],
+        translation: "Kamu harus mematikan teleponmu selama ujian. Itu sangat dilarang."
       },
       {
         q: "The man _____ lives next door is a famous musician.",
         options: ["which", "whose", "who", "whom"],
         answer: 2,
-        explanation: "Relative pronoun 'who' digunakan untuk menggantikan subjek berupa orang ('The man')."
+        explanation: "Relative pronoun 'who' digunakan untuk menggantikan subjek berupa orang ('The man').",
+        words: [["The", "kata sandang untuk benda tertentu"], ["man", "pria"], ["who", "yang", true], ["lives", "tinggal"], ["next door", "di sebelah"], ["is", "adalah"], ["a", "seorang"], ["famous", "terkenal"], ["musician", "musisi"]],
+        translation: "Pria yang tinggal di sebelah rumah adalah seorang musisi terkenal."
       },
       {
         q: "Neither my mother nor my sisters _____ coming to the party tonight.",
         options: ["is", "are", "was", "be"],
         answer: 1,
-        explanation: "Aturan 'Neither... nor...': kata kerja menyesuaikan dengan subjek terdekat ('my sisters' - jamak) -> 'are'."
+        explanation: "Aturan 'Neither... nor...': kata kerja menyesuaikan dengan subjek terdekat ('my sisters' - jamak) -> 'are'.",
+        words: [["Neither", "tidak (salah satu pun)"], ["my", "milik saya"], ["mother", "ibu"], ["nor", "maupun"], ["my", "milik saya"], ["sisters", "saudara perempuan"], ["are", "sedang (kata bantu jamak)", true], ["coming", "datang"], ["to", "ke"], ["the", "kata sandang untuk benda tertentu"], ["party", "pesta"], ["tonight", "malam ini"]],
+        translation: "Baik ibu maupun saudara-saudara perempuan saya tidak akan datang ke pesta malam ini."
       },
       {
         q: "He asked me where I _____ the day before.",
         options: ["go", "went", "had gone", "have gone"],
         answer: 2,
-        explanation: "Reported Speech untuk pertanyaan masa lalu bergeser dari Simple Past menjadi Past Perfect ('had gone')."
+        explanation: "Reported Speech untuk pertanyaan masa lalu bergeser dari Simple Past menjadi Past Perfect ('had gone').",
+        words: [["He", "dia (laki-laki)"], ["asked", "bertanya"], ["me", "saya"], ["where", "ke mana"], ["I", "saya"], ["had gone", "sudah pergi", true], ["the day before", "sehari sebelumnya"]],
+        translation: "Dia bertanya kepada saya ke mana saya pergi sehari sebelumnya."
       },
       {
         q: "I would rather stay home than _____ out in this terrible rain.",
         options: ["go", "going", "to go", "went"],
         answer: 0,
-        explanation: "Struktur 'would rather [Verb 1] than [Verb 1]' membutuhkan kata kerja bentuk dasar tanpa 'to'."
+        explanation: "Struktur 'would rather [Verb 1] than [Verb 1]' membutuhkan kata kerja bentuk dasar tanpa 'to'.",
+        words: [["I", "saya"], ["would rather", "lebih suka"], ["stay", "tinggal"], ["home", "rumah"], ["than", "daripada"], ["go", "pergi", true], ["out", "keluar"], ["in", "di"], ["this", "ini"], ["terrible", "buruk"], ["rain", "hujan"]],
+        translation: "Saya lebih suka tinggal di rumah daripada keluar di hujan yang buruk ini."
       },
       {
         q: "We need to _____ the meeting because the manager is ill.",
         options: ["put off", "call in", "take off", "turn down"],
         answer: 0,
-        explanation: "Phrasal verb 'put off' berarti menunda (postpone)."
+        explanation: "Phrasal verb 'put off' berarti menunda (postpone).",
+        words: [["We", "kami"], ["need", "perlu"], ["to", "untuk"], ["put off", "menunda", true], ["the", "kata sandang untuk benda tertentu"], ["meeting", "rapat"], ["because", "karena"], ["the", "kata sandang untuk benda tertentu"], ["manager", "manajer"], ["is", "adalah"], ["ill", "sakit"]],
+        translation: "Kita perlu menunda rapat karena manajernya sakit."
       },
       {
         q: "Despite _____ hard, he failed the final examination.",
         options: ["he studied", "studying", "of studying", "he study"],
         answer: 1,
-        explanation: "Preposition 'Despite' harus diikuti oleh Noun Phrase atau Gerund ('studying'), bukan klausa lengkap."
+        explanation: "Preposition 'Despite' harus diikuti oleh Noun Phrase atau Gerund ('studying'), bukan klausa lengkap.",
+        words: [["Despite", "meskipun"], ["studying", "belajar (bentuk -ing)", true], ["hard", "giat"], ["he", "dia (laki-laki)"], ["failed", "gagal"], ["the", "kata sandang untuk benda tertentu"], ["final", "akhir"], ["examination", "ujian"]],
+        translation: "Meskipun belajar giat, dia gagal dalam ujian akhir."
       },
       {
         q: "This laptop is much more expensive _____ I expected.",
         options: ["as", "than", "that", "from"],
         answer: 1,
-        explanation: "Bentuk perbandingan komparatif ('more expensive') selalu dipasangkan dengan 'than'."
+        explanation: "Bentuk perbandingan komparatif ('more expensive') selalu dipasangkan dengan 'than'.",
+        words: [["This", "ini"], ["laptop", "laptop"], ["is", "adalah"], ["much more", "jauh lebih"], ["expensive", "mahal"], ["than", "daripada", true], ["I", "saya"], ["expected", "perkirakan"]],
+        translation: "Laptop ini jauh lebih mahal daripada yang saya perkirakan."
       },
       {
         q: "I'll call you as soon as I _____ at the airport.",
         options: ["arrive", "will arrive", "arrived", "am arriving"],
         answer: 0,
-        explanation: "Dalam time clause yang merujuk ke masa depan (diawali 'as soon as'), gunakan Present Simple ('arrive')."
+        explanation: "Dalam time clause yang merujuk ke masa depan (diawali 'as soon as'), gunakan Present Simple ('arrive').",
+        words: [["I'll", "saya akan"], ["call", "menelepon"], ["you", "kamu"], ["as soon as", "segera setelah"], ["I", "saya"], ["arrive", "tiba", true], ["at", "di"], ["the", "kata sandang untuk benda tertentu"], ["airport", "bandara"]],
+        translation: "Saya akan meneleponmu segera setelah saya tiba di bandara."
       },
       {
         q: "She has been working here _____ five years.",
         options: ["since", "for", "from", "during"],
         answer: 1,
-        explanation: "Present Perfect Continuous dengan durasi rentang waktu ('five years') menggunakan kata 'for'."
+        explanation: "Present Perfect Continuous dengan durasi rentang waktu ('five years') menggunakan kata 'for'.",
+        words: [["She", "dia (perempuan)"], ["has been working", "telah bekerja"], ["here", "di sini"], ["for", "selama", true], ["five", "lima"], ["years", "tahun"]],
+        translation: "Dia (perempuan) telah bekerja di sini selama lima tahun."
       },
       {
         q: "The idiom 'spill the beans' means to _____.",
         options: ["make a big mess", "reveal a secret", "cook dinner", "waste food"],
         answer: 1,
-        explanation: "Ungkapan (idiom) 'spill the beans' berarti membocorkan rahasia secara tidak sengaja."
+        explanation: "Ungkapan (idiom) 'spill the beans' berarti membocorkan rahasia secara tidak sengaja.",
+        words: [["The idiom", "ungkapan"], ["'spill the beans'", "membocorkan rahasia"], ["means", "berarti"], ["to", "untuk"], ["reveal a secret", "membocorkan rahasia", true]],
+        translation: "Ungkapan 'spill the beans' berarti membocorkan rahasia."
       },
       {
         q: "I wish I _____ how to swim when I was younger.",
         options: ["know", "knew", "had known", "have known"],
         answer: 2,
-        explanation: "Penyesalan atas hal di masa lalu (Past Wish) menggunakan pola 'wish + Past Perfect' ('had known')."
+        explanation: "Penyesalan atas hal di masa lalu (Past Wish) menggunakan pola 'wish + Past Perfect' ('had known').",
+        words: [["I", "saya"], ["wish", "berharap"], ["I", "saya"], ["had known", "sudah tahu", true], ["how to", "cara"], ["swim", "berenang"], ["when", "ketika"], ["I", "saya"], ["was", "adalah (bentuk lampau)"], ["younger", "lebih muda"]],
+        translation: "Saya berharap saya sudah tahu cara berenang ketika saya lebih muda."
       },
       {
         q: "He denied _____ the window during the break.",
         options: ["to break", "breaking", "break", "broken"],
         answer: 1,
-        explanation: "Kata kerja 'deny' (menyangkal) diikuti oleh bentuk Gerund (Verb-ing) -> 'denied breaking'."
+        explanation: "Kata kerja 'deny' (menyangkal) diikuti oleh bentuk Gerund (Verb-ing) -> 'denied breaking'.",
+        words: [["He", "dia (laki-laki)"], ["denied", "menyangkal"], ["breaking", "memecahkan (bentuk -ing)", true], ["the", "kata sandang untuk benda tertentu"], ["window", "jendela"], ["during", "saat"], ["the", "kata sandang untuk benda tertentu"], ["break", "istirahat"]],
+        translation: "Dia menyangkal memecahkan jendela saat istirahat."
       },
       {
         q: "The report _____ sent to all team members yesterday.",
         options: ["is", "was", "were", "has been"],
         answer: 1,
-        explanation: "Subjek tunggal 'The report' + kejadian pasif di masa lalu ('yesterday') -> gunakan 'was sent'."
+        explanation: "Subjek tunggal 'The report' + kejadian pasif di masa lalu ('yesterday') -> gunakan 'was sent'.",
+        words: [["The", "kata sandang untuk benda tertentu"], ["report", "laporan"], ["was", "kata bantu pasif (bentuk lampau)", true], ["sent", "dikirim"], ["to", "kepada"], ["all", "semua"], ["team members", "anggota tim"], ["yesterday", "kemarin"]],
+        translation: "Laporan itu dikirim ke semua anggota tim kemarin."
       },
       {
         q: "Hardly _____ entered the room when the lights went out.",
         options: ["I had", "had I", "did I", "I did"],
         answer: 1,
-        explanation: "Kalimat yang diawali adverb negatif 'Hardly' mengalami inversi (Inversion): 'Hardly + had + subject + V3'."
-      },
-      {
-        q: "You had better _____ your homework before going out.",
-        options: ["finish", "to finish", "finishing", "finished"],
-        answer: 0,
-        explanation: "Ungkapan 'had better' (sebaiknya) selalu diikuti oleh kata kerja dasar/bare infinitive ('finish')."
-      },
-      {
-        q: "The cake tastes _____.",
-        options: ["deliciously", "delicious", "more deliciously", "delicateness"],
-        answer: 1,
-        explanation: "'Taste' adalah linking verb, sehingga diikuti oleh Adjective ('delicious'), bukan adverb."
-      },
-      {
-        q: "She succeeded _____ passing the difficult entrance exam.",
-        options: ["in", "on", "at", "with"],
-        answer: 0,
-        explanation: "Pasangan preposisi yang tepat untuk kata kerja 'succeed' adalah 'in' ('succeed in doing something')."
-      },
-      {
-        q: "Would you mind _____ the window? It's getting cold.",
-        options: ["close", "to close", "closing", "closed"],
-        answer: 2,
-        explanation: "Ungkapan sopan 'Would you mind...?' harus diikuti oleh Gerund (Verb-ing)."
-      },
-      {
-        q: "Neither of the candidates _____ suitable for the job.",
-        options: ["are", "is", "were", "be"],
-        answer: 1,
-        explanation: "'Neither of + plural noun' secara gramatikal standar dianggap subjek tunggal (singular) -> 'is'."
-      },
-      {
-        q: "If it rains tomorrow, we _____ the outdoor concert.",
-        options: ["cancel", "would cancel", "will cancel", "canceled"],
-        answer: 2,
-        explanation: "First Conditional (kemungkinan nyata di masa depan): 'If + Present Simple, ... will + V1'."
-      },
-      {
-        q: "He is looking forward to _____ you again.",
-        options: ["see", "seeing", "seen", "saw"],
-        answer: 1,
-        explanation: "Dalam frasa 'look forward to', kata 'to' di sini adalah preposisi, maka harus diikuti Gerund ('seeing')."
-      },
-      {
-        q: "It's high time you _____ studying for your final exam.",
-        options: ["start", "started", "have started", "will start"],
-        answer: 1,
-        explanation: "Frasa 'It's high time...' (sudah saatnya) diikuti oleh klausa bernuansa Subjunctive dengan Past Simple ('started')."
-      },
-      {
-        q: "The room was empty; there was _____ there.",
-        options: ["somebody", "nobody", "anybody", "everybody"],
-        answer: 1,
-        explanation: "Ruangan itu kosong, artinya 'tidak ada siapapun' di sana ('there was nobody there')."
-      },
-      {
-        q: "Choose the correct phrase for 'menolak tawaran':",
-        options: ["turn up", "turn off", "turn down", "turn over"],
-        answer: 2,
-        explanation: "Phrasal verb 'turn down' berarti menolak (reject/decline) tawaran atau ajakan."
+        explanation: "Kalimat yang diawali adverb negatif 'Hardly' mengalami inversi (Inversion): 'Hardly + had + subject + V3'.",
+        words: [["Hardly", "baru saja"], ["had I", "saya baru saja", true], ["entered", "memasuki"], ["the", "kata sandang untuk benda tertentu"], ["room", "ruangan"], ["when", "ketika"], ["the", "kata sandang untuk benda tertentu"], ["lights", "lampu"], ["went out", "padam"]],
+        translation: "Saya baru saja memasuki ruangan ketika lampu-lampu padam."
       }
     ];
 
@@ -666,12 +636,37 @@
     let currentIndex = 0;
     let score = 0;
     let userAnswers = []; // records { qIndex, selectedOpt, isCorrect }
+    let translationOpen = false; // apakah panel terjemahan sedang terbuka
 
     // Init Theme & High Scores on Load
     window.onload = function() {
       initTheme();
+      migrateHighScores();
       updateHighScoreDisplay();
     };
+
+    // Skala skor berubah dari 300 menjadi 200, jadi skor lama dikonversi proporsional.
+    function migrateHighScores() {
+      const migrations = [['hs_pemula', 'hs_pemula_v2'], ['hs_menengah', 'hs_menengah_v2']];
+      migrations.forEach(([oldKey, newKey]) => {
+        if (localStorage.getItem(newKey) === null) {
+          const oldValue = parseInt(localStorage.getItem(oldKey) || '0', 10);
+          if (oldValue > 0) {
+            localStorage.setItem(newKey, Math.round((oldValue / 300) * 200).toString());
+          }
+        }
+      });
+    }
+
+    // Fisher-Yates shuffle (array baru, tidak mengubah sumber)
+    function shuffleArray(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
 
     function initTheme() {
       if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -696,10 +691,10 @@
     }
 
     function updateHighScoreDisplay() {
-      const hsPemula = localStorage.getItem('hs_pemula') || 0;
-      const hsMenengah = localStorage.getItem('hs_menengah') || 0;
-      document.getElementById('highScorePemula').innerText = `${hsPemula} / 300`;
-      document.getElementById('highScoreMenengah').innerText = `${hsMenengah} / 300`;
+      const hsPemula = localStorage.getItem('hs_pemula_v2') || 0;
+      const hsMenengah = localStorage.getItem('hs_menengah_v2') || 0;
+      document.getElementById('highScorePemula').innerText = `${hsPemula} / 200`;
+      document.getElementById('highScoreMenengah').innerText = `${hsMenengah} / 200`;
     }
 
     function showLevelSelect() {
@@ -712,7 +707,8 @@
 
     function startQuiz(level) {
       currentLevel = level;
-      currentQuestions = level === 'pemula' ? questionsPemula : questionsMenengah;
+      // Acak urutan soal tiap kali level dimulai/diulang dari awal
+      currentQuestions = shuffleArray(level === 'pemula' ? questionsPemula : questionsMenengah);
       currentIndex = 0;
       score = 0;
       userAnswers = [];
@@ -741,6 +737,10 @@
       // Set Question text
       document.getElementById('questionText').innerText = qData.q;
 
+      // Reset & isi panel terjemahan (tertutup secara default)
+      closeTranslation();
+      renderTranslation(qData);
+
       // Render Options
       const optionsBox = document.getElementById('optionsContainer');
       optionsBox.innerHTML = '';
@@ -764,12 +764,78 @@
 
       // Hide Explanation & Disable Next button
       const expBox = document.getElementById('explanationBox');
+      expBox.classList.remove('border-green-600', 'border-red-600');
+      expBox.classList.add('border-black', 'dark:border-white');
       expBox.classList.add('hidden');
 
       const nextBtn = document.getElementById('nextBtn');
       nextBtn.disabled = true;
       nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
       nextBtn.innerText = currentIndex === currentQuestions.length - 1 ? 'Selesai →' : 'Lanjut →';
+    }
+
+    function renderTranslation(qData) {
+      const wordList = document.getElementById('wordList');
+      const sentenceElem = document.getElementById('sentenceTranslation');
+      const answered = userAnswers[currentIndex] !== undefined;
+      wordList.innerHTML = '';
+
+      if (!qData.words) {
+        sentenceElem.innerText = 'Terjemahan belum tersedia untuk soal ini.';
+        return;
+      }
+
+      qData.words.forEach(([en, id, isTarget]) => {
+        const item = document.createElement('div');
+        if (isTarget && !answered) {
+          // Jangan bocorkan jawaban: kata pengisi rumpang disembunyikan sebelum dijawab
+          item.className = 'flex items-center justify-between gap-2 p-2.5 border-2 border-dashed border-zinc-400 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-zinc-400 dark:text-zinc-500';
+          item.innerHTML = `
+            <span class="font-semibold tracking-widest">_____</span>
+            <span class="opacity-60">=</span>
+            <span class="text-right italic">?</span>
+          `;
+        } else if (isTarget) {
+          item.className = 'flex items-center justify-between gap-2 p-2.5 border-2 border-green-600 bg-green-600 text-white font-bold';
+          item.innerHTML = `
+            <span class="font-semibold">${escapeHtml(en)}</span>
+            <span class="opacity-80">=</span>
+            <span class="text-right">${escapeHtml(id)}</span>
+          `;
+        } else {
+          item.className = 'flex items-center justify-between gap-2 p-2.5 border-2 border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900';
+          item.innerHTML = `
+            <span class="font-semibold">${escapeHtml(en)}</span>
+            <span class="opacity-60">=</span>
+            <span class="text-right">${escapeHtml(id)}</span>
+          `;
+        }
+        wordList.appendChild(item);
+      });
+
+      if (answered) {
+        sentenceElem.classList.remove('italic', 'text-zinc-500', 'dark:text-zinc-400');
+        sentenceElem.innerText = qData.translation || '';
+      } else {
+        sentenceElem.classList.add('italic', 'text-zinc-500', 'dark:text-zinc-400');
+        sentenceElem.innerText = '🔒 Terjemahan kalimat lengkap muncul setelah kamu menjawab, biar nggak spoiler jawabannya.';
+      }
+    }
+
+    // Tutup panel terjemahan & tampilkan kembali pilihan ganda
+    function closeTranslation() {
+      translationOpen = false;
+      document.getElementById('optionsContainer').classList.remove('hidden');
+      document.getElementById('translationBox').classList.add('hidden');
+      document.getElementById('translateBtn').innerText = '🌐 Terjemahkan';
+    }
+
+    // Toggle: buka terjemahan -> pilihan ganda hilang, tutup -> pilihan ganda kembali
+    function toggleTranslation() {
+      translationOpen = !translationOpen;
+      document.getElementById('optionsContainer').classList.toggle('hidden', translationOpen);
+      document.getElementById('translationBox').classList.toggle('hidden', !translationOpen);
+      document.getElementById('translateBtn').innerText = translationOpen ? '✕ Tutup Terjemahan' : '🌐 Terjemahkan';
     }
 
     function selectOption(selectedIdx) {
@@ -795,21 +861,19 @@
         options: qData.options
       };
 
-      // Update UI for each option button
+      // Update UI for each option button (hijau = benar, merah = salah)
       optionButtons.forEach((btn, idx) => {
         btn.disabled = true;
-        btn.classList.remove('hover:bg-zinc-100', 'dark:hover:bg-zinc-800');
+        btn.classList.remove('hover:bg-zinc-100', 'dark:hover:bg-zinc-800', 'border-black', 'dark:border-white');
 
         if (idx === qData.answer) {
-          // Highlight correct answer in solid monochrome styling
-          btn.classList.add('bg-black', 'text-white', 'dark:bg-white', 'dark:text-black', 'font-bold');
+          btn.classList.add('bg-green-600', 'border-green-700', 'dark:border-green-500', 'text-white', 'font-bold');
           btn.querySelector('.status-icon').innerText = '✓';
         } else if (idx === selectedIdx && !isCorrect) {
-          // Highlight wrong choice
-          btn.classList.add('bg-zinc-200', 'dark:bg-zinc-800', 'line-through');
+          btn.classList.add('bg-red-600', 'border-red-700', 'dark:border-red-500', 'text-white', 'font-bold', 'line-through');
           btn.querySelector('.status-icon').innerText = '✗';
         } else {
-          btn.classList.add('opacity-40');
+          btn.classList.add('border-black', 'dark:border-white', 'opacity-40');
         }
       });
 
@@ -818,16 +882,22 @@
       const badge = document.getElementById('feedbackBadge');
       const expText = document.getElementById('explanationText');
 
+      expBox.classList.remove('border-black', 'dark:border-white');
       if (isCorrect) {
-        badge.className = 'font-black text-xs uppercase px-2.5 py-1 bg-black text-white dark:bg-white dark:text-black';
+        badge.className = 'font-black text-xs uppercase px-2.5 py-1 bg-green-600 text-white';
         badge.innerText = '✓ JAWABAN BENAR';
+        expBox.classList.add('border-green-600');
       } else {
-        badge.className = 'font-black text-xs uppercase px-2.5 py-1 border-2 border-black dark:border-white bg-white dark:bg-zinc-900 text-black dark:text-white';
+        badge.className = 'font-black text-xs uppercase px-2.5 py-1 bg-red-600 text-white';
         badge.innerText = '✗ JAWABAN SALAH';
+        expBox.classList.add('border-red-600');
       }
 
       expText.innerText = qData.explanation;
       expBox.classList.remove('hidden');
+
+      // Panel terjemahan ikut ter-update agar jawaban yang sudah dijawab tidak lagi disembunyikan
+      renderTranslation(qData);
 
       // Update current score counter in header
       document.getElementById('quizScoreText').innerText = `SKOR: ${score}`;
@@ -874,7 +944,7 @@
       }
 
       // Save to local storage if higher
-      const storageKey = currentLevel === 'pemula' ? 'hs_pemula' : 'hs_menengah';
+      const storageKey = currentLevel === 'pemula' ? 'hs_pemula_v2' : 'hs_menengah_v2';
       const prevHs = parseInt(localStorage.getItem(storageKey) || '0', 10);
       if (score > prevHs) {
         localStorage.setItem(storageKey, score.toString());
@@ -890,12 +960,12 @@
 
       userAnswers.forEach((ans, idx) => {
         const item = document.createElement('div');
-        item.className = `p-4 border-2 border-black dark:border-white ${ans.isCorrect ? 'bg-zinc-50 dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-800/80'} space-y-2 text-xs sm:text-sm`;
+        item.className = `p-4 border-2 ${ans.isCorrect ? 'border-green-600 bg-green-50 dark:bg-green-950/40' : 'border-red-600 bg-red-50 dark:bg-red-950/40'} space-y-2 text-xs sm:text-sm`;
 
         item.innerHTML = `
           <div class="flex justify-between items-start gap-2">
             <span class="font-bold">#${idx + 1}. ${escapeHtml(ans.question)}</span>
-            <span class="font-black text-xs px-2 py-0.5 border border-black dark:border-white shrink-0 ${ans.isCorrect ? 'bg-black text-white dark:bg-white dark:text-black' : 'bg-white text-black dark:bg-zinc-900 dark:text-white'}">
+            <span class="font-black text-xs px-2 py-0.5 shrink-0 ${ans.isCorrect ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}">
               ${ans.isCorrect ? 'BENAR (+10)' : 'SALAH (0)'}
             </span>
           </div>

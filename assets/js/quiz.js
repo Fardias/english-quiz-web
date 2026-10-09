@@ -1,5 +1,17 @@
 // quiz.js — Logika inti kuis: alur soal, penilaian, panel terjemahan, dan halaman hasil.
-// Memakai variabel global questionsPemula & questionsMenengah dari folder data/.
+// Memakai variabel global questionsPemula, questionsMenengah & questionsUmum dari folder data/.
+
+const QUESTIONS_PER_SESSION = 20; // jumlah soal yang ditampilkan tiap sesi
+const LEVEL_LABELS = {
+  pemula: 'LEVEL PEMULA',
+  menengah: 'LEVEL MENENGAH',
+  umum: 'PENGETAHUAN UMUM'
+};
+const HIGH_SCORE_KEYS = {
+  pemula: 'hs_pemula_v2',
+  menengah: 'hs_menengah_v2',
+  umum: 'hs_umum_v2'
+};
 
 let currentLevel = 'pemula';
 let currentQuestions = [];
@@ -8,11 +20,16 @@ let score = 0;
 let userAnswers = []; // records { qIndex, selectedOpt, isCorrect }
 let translationOpen = false; // apakah panel terjemahan sedang terbuka
 
+function getQuestionBank(level) {
+  if (level === 'pemula') return questionsPemula;
+  if (level === 'menengah') return questionsMenengah;
+  return questionsUmum;
+}
+
 function updateHighScoreDisplay() {
-  const hsPemula = localStorage.getItem('hs_pemula_v2') || 0;
-  const hsMenengah = localStorage.getItem('hs_menengah_v2') || 0;
-  document.getElementById('highScorePemula').innerText = `${hsPemula} / 200`;
-  document.getElementById('highScoreMenengah').innerText = `${hsMenengah} / 200`;
+  document.getElementById('highScorePemula').innerText = `${localStorage.getItem(HIGH_SCORE_KEYS.pemula) || 0} / 200`;
+  document.getElementById('highScoreMenengah').innerText = `${localStorage.getItem(HIGH_SCORE_KEYS.menengah) || 0} / 200`;
+  document.getElementById('highScoreUmum').innerText = `${localStorage.getItem(HIGH_SCORE_KEYS.umum) || 0} / 200`;
 }
 
 function showLevelSelect() {
@@ -25,8 +42,10 @@ function showLevelSelect() {
 
 function startQuiz(level) {
   currentLevel = level;
-  // Acak urutan soal tiap kali level dimulai/diulang dari awal
-  currentQuestions = shuffleArray(level === 'pemula' ? questionsPemula : questionsMenengah);
+  // Acak bank soal, lalu ambil 20 soal. Bank boleh berisi lebih dari 20
+  // (Pengetahuan Umum: 40 soal), sehingga tiap sesi menampilkan 20 soal acak yang berbeda.
+  const bank = shuffleArray(getQuestionBank(level));
+  currentQuestions = bank.slice(0, Math.min(QUESTIONS_PER_SESSION, bank.length));
   currentIndex = 0;
   score = 0;
   userAnswers = [];
@@ -36,7 +55,7 @@ function startQuiz(level) {
   document.getElementById('quizScreen').classList.remove('hidden');
   document.getElementById('headerResetBtn').classList.remove('hidden');
 
-  document.getElementById('quizLevelBadge').innerText = level === 'pemula' ? 'LEVEL PEMULA' : 'LEVEL MENENGAH';
+  document.getElementById('quizLevelBadge').innerText = LEVEL_LABELS[level] || 'LEVEL';
 
   renderQuestion();
 }
@@ -58,6 +77,8 @@ function renderQuestion() {
   // Reset & isi panel terjemahan (tertutup secara default)
   closeTranslation();
   renderTranslation(qData);
+  // Tombol terjemahan hanya relevan untuk soal berbahasa Inggris (punya data "words")
+  document.getElementById('translateBtn').classList.toggle('hidden', !qData.words);
 
   // Render Options
   const optionsBox = document.getElementById('optionsContainer');
@@ -260,7 +281,7 @@ function showResultScreen() {
   }
 
   // Save to local storage if higher
-  const storageKey = currentLevel === 'pemula' ? 'hs_pemula_v2' : 'hs_menengah_v2';
+  const storageKey = HIGH_SCORE_KEYS[currentLevel];
   const prevHs = parseInt(localStorage.getItem(storageKey) || '0', 10);
   if (score > prevHs) {
     localStorage.setItem(storageKey, score.toString());

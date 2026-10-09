@@ -40,7 +40,7 @@
       <div class="text-center space-y-3 py-6">
         <h1 class="text-4xl sm:text-5xl font-black uppercase tracking-tight">Kuasai Bahasa Inggris</h1>
         <p class="text-zinc-600 dark:text-zinc-400 font-medium text-base sm:text-lg max-w-xl mx-auto">
-          Belajar grammar & kosakata tanpa ribet. Pilih level, selesaikan 20 soal, dan pahami penjelasan di setiap jawaban.
+          Belajar bahasa Inggris & pengetahuan umum tanpa ribet. Pilih level, selesaikan 20 soal, dan pahami penjelasan di setiap jawaban.
         </p>
       </div>
 
@@ -88,6 +88,29 @@
             </div>
             <button onclick="startQuiz('menengah')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
               Mulai Level Menengah →
+            </button>
+          </div>
+        </div>
+
+        <!-- Pengetahuan Umum Card -->
+        <div class="border-4 border-black dark:border-white bg-white dark:bg-zinc-900 p-6 flex flex-col justify-between card-mono md:col-span-2">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="bg-black text-white dark:bg-white dark:text-black text-xs font-bold uppercase px-3 py-1">Level 03</span>
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400">40 Bank · 20 Tampil</span>
+            </div>
+            <h2 class="text-2xl font-black uppercase mb-2">Pengetahuan Umum</h2>
+            <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
+              Uji wawasan umum: geografi, sejarah, sains, matematika, dan budaya. Bank berisi 40 soal, dan setiap sesi menampilkan 20 soal yang diacak ulang.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="border-t-2 border-dashed border-zinc-300 dark:border-zinc-700 pt-3 flex justify-between text-xs font-semibold">
+              <span>Skor Tertinggi:</span>
+              <span id="highScoreUmum" class="font-bold">0 / 200</span>
+            </div>
+            <button onclick="startQuiz('umum')" class="w-full bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white py-3.5 px-4 font-bold uppercase tracking-wider text-sm btn-mono">
+              Mulai Pengetahuan Umum →
             </button>
           </div>
         </div>
@@ -247,6 +270,7 @@
   <!-- Data soal -->
   <script defer src="assets/js/data/pemula.js"></script>
   <script defer src="assets/js/data/menengah.js"></script>
+  <script defer src="assets/js/data/umum.js"></script>
   <!-- Logika aplikasi (urutan penting) -->
   <script defer src="assets/js/utils.js"></script>
   <script defer src="assets/js/theme.js"></script>
